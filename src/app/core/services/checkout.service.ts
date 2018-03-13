@@ -42,7 +42,7 @@ export class CheckoutService {
    */
   createNewLineItem(variant_id: number) {
     return this.http.post(
-      `spree/api/v1/orders/${this.orderNumber}/line_items?order_token=${this.getOrderToken()}`,
+      `shop/api/v1/orders/${this.orderNumber}/line_items?order_token=${this.getOrderToken()}`,
       {
         line_item: {
           variant_id: variant_id,
@@ -64,7 +64,7 @@ export class CheckoutService {
    */
   fetchCurrentOrder() {
     return this.http.get(
-      'spree/api/v1/orders/current'
+      'shop/api/v1/orders/current'
     ).map(res => {
       const order = res.json();
       if (order) {

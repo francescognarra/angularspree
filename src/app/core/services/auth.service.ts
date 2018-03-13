@@ -36,7 +36,7 @@ export class AuthService {
    */
   login(data): Observable<any> {
     return this.http.post(
-      'spree/login.json',
+      'login.json',
       { spree_user: data }
     ).map((res: Response) => {
       data = res.json();
@@ -101,7 +101,7 @@ export class AuthService {
    */
   authorized(): Observable<any> {
     return this.http
-      .get('spree/api/v1/users')
+      .get('shop/api/v1/users')
       .map((res: Response) => res.json());
     // catch should be handled here with the http observable
     // so that only the inner obs dies and not the effect Observable
@@ -117,7 +117,7 @@ export class AuthService {
    * @memberof AuthService
    */
   logout() {
-    return this.http.get('spree/logout.json')
+    return this.http.get('shop/logout.json')
       .map((res: Response) => {
         // Setting token after login
         localStorage.removeItem('user');

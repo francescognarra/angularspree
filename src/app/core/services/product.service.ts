@@ -22,7 +22,7 @@ export class ProductService {
    * @memberof ProductService
    */
   getProduct(id: string): Observable<any> {
-    return this.http.get(`/spree/api/v1/products/${id}`)
+    return this.http.get(`/shop/api/v1/products/${id}`)
     .map(res => res.json());
   }
 
@@ -34,7 +34,7 @@ export class ProductService {
    * @memberof ProductService
    */
   getTaxonomies(): any {
-    return this.http.get(`/spree/api/v1/taxonomies?set=nested`)
+    return this.http.get(`/shop/api/v1/taxonomies?set=nested`)
     .map(res => res.json());
   }
 
@@ -46,7 +46,7 @@ export class ProductService {
    * @memberof ProductService
    */
   getProducts(): any {
-    return this.http.get(`/spree/api/v1/products`)
+    return this.http.get(`/shop/api/v1/products`)
     .map(res => res.json());
   }
 }
